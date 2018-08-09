@@ -1,0 +1,355 @@
+#include <iostream>
+#include <conio.h>
+#include <stdlib.h>
+#include <string>
+#include <vector>
+
+using namespace std;
+void showVector (vector<string>& inventory);
+int chestOpen(vector<string>& inventory);
+ 
+int main()
+{
+	vector<string> inventory(2);
+	inventory[0] = "Shield";
+	inventory[1] = "Health Potion";
+	
+	cout << "********************************************Welcome to Goblin Panic************************************************" << endl;
+	cout << "**************Your city is being attacked, choose your choice in this game and be a hero or traiter! **************" << endl;
+	cout << "*******************************************************************************************************************" << endl;
+    char name[50];
+    cout << "What is your name, warrior?" << endl;
+    cin.getline(name, 50);
+    
+    cout << "We need to prepare for the war " << name << endl;
+    showVector (inventory);
+    
+    cout << "\n----------------------Press any key to continue----------------------" << endl;
+    _getch();
+    
+    int drink;
+    cout << "Narrator: Looks like you haven't used your health potion and shield " << name <<  " Quickly drink it. \n" << endl;
+    cout << "Press 1 to drink it now!";
+    cin >> drink;
+    if (drink == 1) {
+    	
+    	inventory.pop_back();
+    	inventory.pop_back();
+    	showVector (inventory);
+    	
+    	cout << "\nNarrator: Oops! you do not have any items in your inventory. Let's find you some items. " << name << "." << endl;
+    	
+	} else {
+		cout << " Narrator: You must drink the health potion and sheild to stay alive warrior. Please press 1, nothing else!" << endl;
+		goto retry;
+	}
+	  cout << "\n----------------------Press any key to continue----------------------" << endl;
+    _getch();
+	
+	cout << "\n!!!---------------------Mission: Find some items ----------------------!!!" << endl;
+	cout << "\n Now that you have equiped a full shield potion and health is maxed, let's get to work. ";
+	cout << " \n Narrator: You begin your mission to find the chest that would carry items for war. You start walking on the hills around the city."
+	     << "\n You: I must find something to protect myself with. There should be some weapons or a chest around. "
+		 <<"\n Narrator: You walk through the hills and you do not see anything accross the horizon except for the ambient city lights. "
+		 << "\n While you look around, you spot a piece of paper under a rock. You reach for it to notice its a map." << endl;
+	
+	
+	cout << "\n----------------------Press any key to continue----------------------" << endl;
+    _getch();
+    
+    int map;
+    cout << "\n Press 1 to pick up the map";
+    cin >> map;
+    if (map==1) {
+    	cout << "\n The map tells you where you can find a chest filled with items. You must use it to find your way to it.  ";
+    	cout << "\n----------------------Press any key to continue----------------------" << endl;
+    _getch();
+	cout<< "\n Narrator: As you read the map, you can see that the chest location is not very far way. Your hopes are up. You follow the map."
+    	<< "\n You:  It doesn't seem to be very far. I must get there before a goblin finds me. "
+		<< "\n Narrator: As you walk though the hills, you finally see something. You see a farmer house. You look on the map again and you realize that the chest is located in this house."
+	    << "\n Narrator: You walk inside the house and you found a chest on top of a rock and another inside a barred cage." << endl;
+			
+	}
+	else {
+		cout << "You must pick up the map to locate the chests. Press 1, nothing else!";
+		goto retry;
+	}
+	
+	 inventory.push_back("map");
+	 cout << "\n----------------------Press any key to continue----------------------" << endl;
+    _getch();
+	
+	int chest;
+	cout << "Press 1 to open the chest on top of the rock";
+	cout << "Press 2 to open the chest inside the barred cage";
+    cin >> chest;
+    
+    
+    if (chest == 1) {
+	
+		cout << "\nYou have a Cross-Bow, Sword, 2 Health Potions, and 2 Shields. You can use weapons to kill you enemies. Use health potion and shield when you are low on health. \n ";
+		
+		inventory.push_back("Stink-Bomb");
+    	inventory.push_back("Cross-Bow");
+    	inventory.push_back("Sword");
+    	inventory.push_back("Health Potion1");
+    	inventory.push_back("Health Potion2");
+    	inventory.push_back("Shield1");
+    	inventory.push_back("Shield2");
+    	showVector (inventory);
+	
+	}
+	else if (chest == 2){
+		
+		cout << "\nYou have a Poison, Cross-Bow, Sword, 2 Health Potions, and 2 Shields. You can use weapons to kill you enemies. Use health potion and shield when you are low on health. \n ";
+		
+		inventory.push_back("Poison");
+    	inventory.push_back("Cross-Bow");
+    	inventory.push_back("Sword");
+    	inventory.push_back("Health Potion1");
+    	inventory.push_back("Health Potion2");
+    	inventory.push_back("Shield1");
+    	inventory.push_back("Shield2");
+    	showVector (inventory);		
+	}
+		
+    
+    cout << "Villager: sir " << name << ". The goblins are attacking the city. PLease take what you found, you will need it to defend yourself in the battles ahead." << endl;
+    cout << "\n----------------------Press any key to continue----------------------" << endl;
+    _getch();
+    
+      int choiceTwo_Path;
+    cout << "Narrator: (write something about reaching a cross road leading to a lake  or a burned village)." << endl;
+    cout << "Narrator: You have reached a cross road, to your left you see the path to a lake which will lead you closer to reaching the king" << endl;
+    cout << "To your right you see smoke coming from the direction of a nearby village" << endl;
+    cout << " Choose your path " << name << " your choice will affect the few or many" << endl;
+    cout << "\t >> Enter '1' to go to the lake" << endl;
+    cout << "\t >> Enter '2' to help the villagers in the town ahead" << endl;
+  
+    cout << "\nEnter your choice: ";
+    cin >> choiceTwo_Path;
+    if(choiceTwo_Path == 1)
+    {
+        cout << "\n!!!----------------------lake of tranquility:----------------------!!!" << endl;
+        cout << "\n You: As you reach the end of the road you survey the lake and spot a boat tethered to the dock." << endl;
+        cout << " You grab the oars then untether the boat and begin rowing across the surface of the lake." << endl;
+        cout << " While rowing you begin to think of all the peaceful times you've spent on this lake fishing. " << endl;
+        cout << " Your racing heart starts to slow, in addition the fear in your heart of the inevitable battle begins to dissipate." << endl;
+        cout << " Narrator: These subtle changes may alter the course of future events, but know this " << name << " you are prepared for the actions you must take!" << endl;
+    }
+    else if(choiceTwo_Path == 2)
+    {
+         cout << "\n!!!----------------------Chaotic Village----------------------!!!" << endl;
+        cout << " Narrator: As you run towards the burning village you hear screams, you immediately start running faster." << endl;
+        cout << " Narrator: You make it to the end of the road and see the village is not in complete ruin. " << endl;
+        cout << " Narrator: There is a detachment of goblins remaining in the village, if you act now you can save the villagers from further torment by the goblins." << endl;
+        cout << " Choose your weapon from the inventory to kill the goblins";
+        chestOpen(inventory);
+        cout << " You: Let out a throaty battle cry as you charge towards the remaining goblins" << endl;
+        cout << " You: Thinking to yourself I must get to the city now this current threat is over!" << endl;
+
+    }
+    else
+    {
+        cout << "You are doing it wrong, warrior! Press either '1' or '2', nothing else!" << endl;
+        goto retry;
+    }
+ 
+    cout << "\n----------------------Press any key to continue----------------------" << endl;
+    _getch();
+    
+    int choiceOne_Path;
+    cout << "# As you run towards the city you meet a fork in the road, What would you like to do?" << endl;
+    cout << "\t >> Enter '1' to enter the woods?" << endl;
+    cout << "\t >> Enter '2' to enter the caves?" << endl;
+    retry:
+    cout << "\nEnter your choice: ";
+    cin >> choiceOne_Path;
+    
+    if(choiceOne_Path == 1)
+    {
+        cout << "\n!!!----------------------Woods: Escape----------------------!!!" << endl;
+        cout << "\nYou: I know the woods from the back of my hand, but i know it takes a while to get there." << endl;
+        cout << "narrator: as you go into the woods you stumble a goblin in the road. \n\n";
+        cout <<"Choose weapns from the inventory to kill the goblin." ;
+        chestOpen (inventory);
+        cout << "You: im sorry but i must get to the city at all cost!" << endl;
+        
+       }
+        
+        
+    else if(choiceOne_Path == 2)
+    {
+        cout << "\n!!!----------------------Caves: Escape----------------------!!!" << endl;
+        cout << "\nYou: The caves can take me there faster but its very unstable due to the earthquakes we been having. I have no choice i have to get there as fast as i can!" << endl;
+        cout << "narrator: as you run in the caves, an earhtquake starts to happen out of nowhere, you try to avoid the fallen rocks but as on last leap to the exit a giant bolder falls on to you collapsing your body." << endl;
+        cout << "You: I cant believe im gana die here. my quest over like that.. im sorry everyone.. i failed" << endl;
+        cout << "Narrator: as you begin to feel your body start to decay you remember you have 2 health potions and 2 shields in your bag";
+        
+        int health;
+        cout << "\nPress 1 to drink the health potion.\n"
+        	 <<"\nPress 2 to drink the shield"
+        	 << "\nPress 3 to drink both.\n" << endl;
+        cin>> health;
+        if (health == 1) {
+        
+        	inventory.erase(inventory.begin()+4);
+        	showVector (inventory);
+        	
+		}
+		else if (health == 2) {
+			
+			inventory.erase(inventory.begin()+5);
+			showVector (inventory);
+			     	
+		}
+		else if (health == 3) {
+			
+				inventory.erase(inventory.begin()+4);
+				inventory.erase(inventory.begin()+5);
+				showVector (inventory);
+			
+		}
+		else {
+		
+		cout << "You must drink the health potion and sheild to stay alive warrior. Please press 1, nothing else!" << endl;
+		goto retry;
+			
+		}
+		
+		
+        
+        
+        cout << "\nYou: nothing will stop me from protecting my people!" << endl;
+    }
+    else
+    {
+        cout << "You are doing it wrong, warrior! Press either '1' or '2', nothing else!" << endl;
+        goto retry;
+    }
+ 
+    cout << "\n----------------------Press any key to continue----------------------" << endl;
+    _getch();
+    
+   
+    cout << "Narrator: you finally made it to the city, however the castle is being attacked by the goblins, theres two ways to go choose wisely." << endl;
+    cout << "\t >> Enter '1' to fight your way through to reach the castle grounds" << endl;
+    cout << "\t >> Enter '2' to sneak your way in through the hidden passage underground." << endl;
+  
+    cout << "\nEnter your choice: ";
+    cin >> choiceTwo_Path;
+    if(choiceTwo_Path == 1)
+    {
+        cout << "\n!!!----------------------Outside the castle grounds:----------------------!!!" << endl;
+        cout << "\nYou: I have no choice, i have to fight my way through!" << endl;
+        cout << "narrator: you fight the goblins one by one. You take some damage on your arm but with the will of fire in your soul you start to show no mercy on the enemy." << endl;
+        cout << " you: if you face me, you will die, end of that!" << endl;
+    }
+    else if(choiceTwo_Path == 2)
+    {
+         cout << "\n!!!----------------------inside the secret passage----------------------!!!" << endl;
+        cout << "\nYou: I remember i used to play in those passages as a kid, i may be able to sneak my way inside!" << endl;
+        cout << "Narrator: you sneak past the goblins underground, you use the torch in your bag to light your way through." << endl;
+        cout << "You: Man, this takes me back, but i need to find the king! hopefully i make it in time!" << endl;
+        cout << "Narrator: you go through the labrinth to find the door leading to the kings chamber however, you meet with some goblins. While their backs were turned you make your way up. However, something catches your attention" << endl;
+        cout << "you find your sister name in one of the files in the execution list for being condemed as a spy. you crumble the paper in rage." << endl;
+        cout << "You: I thought she died by an animal.. why would the king lie to me? he will pay for this!" << endl;
+    }
+    else
+    {
+        cout << "You are doing it wrong, warrior! Press either '1' or '2', nothing else!" << endl;
+        goto retry;
+    }
+ 
+    cout << "\n----------------------Press any key to continue----------------------" << endl;
+    _getch();
+    
+    int choiceThree_Path;
+    cout << "# You enter the kings chamber at last! however meeting there was the king and the goblin king both injured. However they both try to pursuade you to kill the other. What would you like to do?" << endl;
+    cout << "\t >> Enter '1' kill the goblin king?" << endl;
+    cout << "\t >> Enter '2' kill the king?" << endl;
+   
+    cout << "\nEnter your choice: ";
+    
+    cin >> choiceThree_Path;
+    
+    if(choiceThree_Path == 1)
+    {
+        cout << "\n!!!----------------------kings chamber: hero ----------------------!!!" << endl;
+        cout << "\nYou: im sorry but im loyal to my king and always will be so prepare yourself goblin king. I will defeat you!" << endl;
+        cout << "narrator: While your sword clashes with the goblins king sword, sparks fly into the air. Both are injured but with the final strike you come in from behind the goblin and strike the final blow" << endl;
+        cout << "King: as always,   " << name << "   you always amaze me. now then,    " << name << " i believe a reward for your actions is in order. i announce    "<< name << "       as the next ruler of my kingdom" << endl;
+         cout << "\n----------------------hero ending----------------------" << endl; 
+         cout << "**********************************************************************************"<< endl;
+         cout << "*                                END CREDITS                                     *"<< endl;
+		 cout << "* Dialogue, rooms, Multiple endings, End credits and NPC made by Moises Vazquez. *"<< endl;
+		 cout << "*  Inventory, Items, and pick up, including beginning dialogue by Rasu Neupane.  *"<< endl;
+		 cout << "*         lake of tranquility and burned villaged room by Nickolas Ross          *"<< endl;
+		 cout << "*                       Thanks for playing our game!                             *"<< endl;
+		 cout << "**********************************************************************************"<< endl;
+    }
+    else if(choiceThree_Path == 2)
+    {
+        cout << "\n!!!----------------------kings chamber: betrayel----------------------!!!" << endl;
+        cout << "goblin king: so you're the hero of this land. i say what is your name? is not that it matters, you are now my minion and now a betrayed member ofyour city" << endl;
+        cout << "You: my name is   " << name << "   , i dont follow anyone, only myself. I am a traiter to my city and thats fine, at least i know that justice is served." << endl;
+        cout << "Narrator: as the city falls, you leave with a dark smile. leaving the city you thought to yourself, nothing matters..." << endl;
+       cout << "\n----------------------traiter ending----------------------" << endl;
+         cout << "**********************************************************************************" << endl;
+         cout << "*                                END CREDITS                                     *" << endl;
+		 cout << "* Dialogue, rooms, Multiple endings, End Credits and NPC made by Moises Vazquez. *" << endl;
+		 cout << "*  Inventory, Items, and pick up, including beginning dialogue by Rasu Neupane.  *" << endl;
+		 cout << "*         lake of tranquility and burned villaged room by Nicholas Ross          *"<< endl;
+		 cout << "*                       Thanks for playing our game!                             *" << endl;
+		 cout << "**********************************************************************************" << endl;
+    }
+    else
+    {
+        cout << "You are doing it wrong, warrior! Press either '1' or '2', nothing else!" << endl;
+        goto retry;
+    }
+ 
+    cout << "\n----------------------The end----------------------" << endl;
+    _getch();
+    return 0;
+}
+
+
+void showVector (vector<string>& vec) {
+	cout << "You have the following items warrior!" << endl;
+	for (vector<string>::const_iterator iter=vec.begin(); iter != vec.end(); ++iter){
+			cout << *iter << endl;
+	};
+	
+}
+
+int chestOpen(vector<string>& vec) {
+		int weapon;
+        cout << " Press 1 to choose" << vec[1] << endl;
+        
+        cout << " Press 2 to choose" << vec[2] << endl;
+        
+        cout << " Press 3 to choose" << vec[3] << endl;
+        
+        cin >> weapon;
+        int i;
+         
+        if (weapon == 1) {
+        	 i = 1;
+		}
+		else if (weapon == 2) {
+        	 i = 2;
+		}
+		else if (weapon == 3) {
+        	 i = 3;
+		}
+		
+		cout << " You take out your " << vec[i]  << " and kill defeat the goblin." <<endl;
+		
+};
+	 	
+	
+		 	
+		 
+		
+
